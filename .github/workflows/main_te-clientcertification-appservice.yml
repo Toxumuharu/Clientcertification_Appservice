@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'te-clientcertification-appservice'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2E96C9EA19D14C8F8B0C96472CA53518 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_475A00F5E0B84E7E9198D19930F931CE }}
           package: .
