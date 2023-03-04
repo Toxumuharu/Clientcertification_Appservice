@@ -3,7 +3,6 @@
  */
 
 import express from 'express'
-// import { NextFunction, Request, Response } from 'express';
 import { pki, md, asn1 } from 'node-forge';
 
 const router = express.Router();
