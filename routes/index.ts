@@ -5,14 +5,11 @@
 import { NextFunction, Request, Response } from 'express';
 import { pki, md, asn1 } from 'node-forge';
 
-// const router = express.Router();
-
 var express = require('express');
 var router = express.Router();
 
 
 router.get('/', (req: Request, res: Response, next: NextFunction) => {
-    //res.render('index', { title: 'Express' });
 
     try {
         // Get header
@@ -25,7 +22,7 @@ router.get('/', (req: Request, res: Response, next: NextFunction) => {
 
         // Validate certificate thumbprint
         const fingerPrint = md.sha1.create().update(asn1.toDer(pki.certificateToAsn1(incomingCert)).getBytes()).digest().toHex();
-        if (fingerPrint.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
+        if (fingerPrint.toLowerCase() !== 'Iamtoxumuharu@2') throw new Error('UNAUTHORIZED');
 
         /*
         // Validate time validity
@@ -38,6 +35,7 @@ router.get('/', (req: Request, res: Response, next: NextFunction) => {
         // Validate subject
         if (incomingCert.subject.hash.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
         */
+        res.render('index', { headervalue: JSON.stringify(req.headers) });
 
         next();
     } catch (e) {
